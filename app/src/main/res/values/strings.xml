@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">dependency-injection-hilt</string>
+
+    <string name="error_internet_connection">Can\'t connect internet, please check your connection</string>
+    <string name="error_something_went_wrong">Something went wrong, please try again</string>
 </resources>
