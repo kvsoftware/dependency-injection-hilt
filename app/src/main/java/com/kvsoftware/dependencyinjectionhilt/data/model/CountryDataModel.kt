@@ -6,7 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class CountryDataModel(
-    @SerializedName("Country") val country: String,
-    @SerializedName("Slug") val slug: String,
-    @SerializedName("ISO2") val iso2: String
+    @SerializedName("country") val country: String,
+    @SerializedName("countryInfo") val countryInfo: CountryInfoDataModel,
+    @SerializedName("cases") val cases: Int,
+    @SerializedName("recovered") val recovered: Int,
+    @SerializedName("deaths") val deaths: Int,
+    @SerializedName("todayCases") val todayCases: Int,
+    @SerializedName("todayRecovered") val todayRecovered: Int,
+    @SerializedName("todayDeaths") val todayDeaths: Int
 ) : Parcelable

@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">dependency-injection-hilt</string>
 
+    <!-- Global -->
     <string name="error_internet_connection">Can\'t connect internet, please check your connection</string>
     <string name="error_something_went_wrong">Something went wrong, please try again</string>
+
+    <!-- Main -->
+    <string name="activity_main_viewpager_title_favorite">Favorites</string>
+    <string name="activity_main_viewpager_title_map">Map</string>
+    <string name="adapter_favorite_tv_cases">Cases : %1$d</string>
+    <string name="adapter_favorite_tv_recovered">Recovers : %1$d</string>
+    <string name="adapter_favorite_tv_deaths">Deaths : %1$d</string>
+
+    <!-- Country Detail -->
+    <string name="fragment_country_detail_tv_cases">Cases</string>
+    <string name="fragment_country_detail_tv_recovered">Recovered</string>
+    <string name="fragment_country_detail_tv_deaths">Deaths</string>
+
+    <string name="map_api_key" translatable="false">AIzaSyD2jD9IuqYnbr_SlRgpRDbn-YppO_OfArE</string>
+
 </resources>

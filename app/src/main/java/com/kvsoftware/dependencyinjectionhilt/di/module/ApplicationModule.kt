@@ -14,7 +14,7 @@ object ApplicationModule {
     @Provides
     @Singleton
     fun provideRestClient(): RestClient {
-        return RestClient("https://api.covid19api.com/")
+        return RestClient("https://corona.lmao.ninja/v2/")
     }
 
 }

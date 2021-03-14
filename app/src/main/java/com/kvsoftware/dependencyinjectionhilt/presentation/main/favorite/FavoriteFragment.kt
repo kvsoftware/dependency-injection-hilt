@@ -42,7 +42,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>() {
             binding.progressbar.visibility = if (it) View.VISIBLE else View.GONE
         })
         viewModel.error.observe(this, {
-            Log.i("Kv", "Error : " + it)
         })
         viewModel.favorites.observe(this, {
             binding.recyclerview.apply {

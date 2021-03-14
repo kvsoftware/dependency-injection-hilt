@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
     <TextView
-        android:id="@+id/textview_test"
+        android:id="@+id/textview_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        apps:layout_constraintEnd_toEndOf="parent"
-        apps:layout_constraintTop_toTopOf="parent" />
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toTopOf="parent"
+        tools:text="Thailand" />
+
+    <TextView
+        android:id="@+id/textview_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toBottomOf="@+id/textview_country"
+        tools:text="Cases : 26,757" />
+
+    <TextView
+        android:id="@+id/textview_recovered"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toBottomOf="@+id/textview_cases"
+        tools:text="Recovered : 26,086" />
+
+    <TextView
+        android:id="@+id/textview_deaths"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toBottomOf="@+id/textview_recovered"
+        tools:text="Deaths : 86" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

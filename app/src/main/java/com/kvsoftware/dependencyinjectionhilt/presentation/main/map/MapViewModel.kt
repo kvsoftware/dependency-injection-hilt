@@ -1,8 +1,9 @@
-package com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite
+package com.kvsoftware.dependencyinjectionhilt.presentation.main.map
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.kvsoftware.dependencyinjectionhilt.data.model.CountryDataModel
 import com.kvsoftware.dependencyinjectionhilt.domain.helper.ErrorHelper
 import com.kvsoftware.dependencyinjectionhilt.domain.interactor.GetCountriesInteractor
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
@@ -11,21 +12,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class FavoriteViewModel @Inject constructor(private val getCountriesInteractor: GetCountriesInteractor) :
+class MapViewModel @Inject constructor(private val getCountriesInteractor: GetCountriesInteractor) :
     BaseViewModel() {
 
-    val favorites by lazy { MutableLiveData<ArrayList<FavoriteModel>>() }
+    val countries: MutableLiveData<List<CountryDataModel>> by lazy { MutableLiveData<List<CountryDataModel>>() }
 
-    fun getFavorites(context: Context) {
-        isLoading.postValue(true)
+    fun getCountries(context: Context) {
         viewModelScope.launch {
+            isLoading.postValue(true)
             try {
                 val response = getCountriesInteractor.invoke(GetCountriesInteractor.Params())
-                // favorites.postValue(response)
+                countries.postValue(response)
             } catch (e: Exception) {
                 error.postValue(ErrorHelper.getErrorMessage(context, e))
             }
+            isLoading.postValue(false)
         }
-        isLoading.postValue(false)
+
     }
 }

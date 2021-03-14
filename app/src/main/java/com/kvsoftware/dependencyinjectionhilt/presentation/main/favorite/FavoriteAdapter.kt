@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kvsoftware.dependencyinjectionhilt.R
 import com.kvsoftware.dependencyinjectionhilt.databinding.AdapterFavoriteBinding
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseRecyclerViewAdapter
 
@@ -19,10 +20,16 @@ class FavoriteAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
 
-    inner class ViewHolder(val binding: AdapterFavoriteBinding) :
+    inner class ViewHolder(private val binding: AdapterFavoriteBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(favoriteModel: FavoriteModel) {
-            binding.textviewTest.text = favoriteModel.name
+            binding.textviewCountry.text = favoriteModel.countryName
+            binding.textviewCases.text =
+                context.getString(R.string.adapter_favorite_tv_cases, favoriteModel.cases)
+            binding.textviewRecovered.text =
+                context.getString(R.string.adapter_favorite_tv_recovered, favoriteModel.recovered)
+            binding.textviewDeaths.text =
+                context.getString(R.string.adapter_favorite_tv_deaths, favoriteModel.deaths)
         }
     }
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    apps:contentInsetEnd="0dp"
+    apps:contentInsetLeft="0dp"
+    apps:contentInsetRight="0dp"
+    apps:contentInsetStart="0dp"
+    apps:titleTextColor="@android:color/white">
+
+    <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltImageView
+        android:id="@+id/imageview_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:src="@drawable/ic_arrow_back" />
+
+    <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+        android:id="@+id/textview_title"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        tools:text="Toolbar Title" />
+
+</androidx.appcompat.widget.Toolbar>
