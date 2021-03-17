@@ -37,14 +37,8 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         context?.let { it ->
             initializeView(it)
-            initializeViewModel(it)
             initializeObserver(it)
         }
-    }
-
-    private fun initializeViewModel(context: Context) {
-        getViewModel()?.initialize()
-        getViewModel()?.initialize(context)
     }
 
     fun replaceFragment(id: Int, fragment: Fragment) {
