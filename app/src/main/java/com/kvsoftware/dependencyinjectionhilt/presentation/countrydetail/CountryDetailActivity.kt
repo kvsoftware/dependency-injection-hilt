@@ -2,6 +2,7 @@ package com.kvsoftware.dependencyinjectionhilt.presentation.countrydetail
 
 import android.content.Context
 import android.content.Intent
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import com.kvsoftware.dependencyinjectionhilt.R
 import com.kvsoftware.dependencyinjectionhilt.databinding.ActivityBaseToolbarBinding
@@ -23,19 +24,29 @@ class CountryDetailActivity : BaseActivity<ActivityBaseToolbarBinding>() {
         }
     }
 
-    override fun getViewModel(): BaseViewModel? = null
+    private val viewModel: CountryDetailViewModel by viewModels()
+
+    override fun getViewModel(): BaseViewModel = viewModel
 
     override fun getViewBinding(): ActivityBaseToolbarBinding =
         ActivityBaseToolbarBinding.inflate(layoutInflater)
 
     override fun initializeView() {
-        getArgument()?.let {
-            setupToolbar(title = it.countryDataModel.country, showBackButton = true)
-            replaceFragment(R.id.fragment_container, CountryDetailFragment.newInstance(it))
+        getArgument()?.let { arguments ->
+            setupToolbar(
+                title = arguments.countryDataModel.country,
+                showBackButton = true,
+                option2 = { viewModel.favorite(arguments.countryDataModel) }
+            )
+            replaceFragment(R.id.fragment_container, CountryDetailFragment.newInstance(arguments))
+            viewModel.initialize(arguments.countryDataModel)
         }
     }
 
     override fun initializeObserver() {
+        viewModel.isFavorited.observe(this, {
+            setupOptionMenu(imageResOption2 = if (it) R.drawable.ic_favorite else R.drawable.ic_unfavorite)
+        })
     }
 
     private fun getArgument(): CountryDetailArgument? {

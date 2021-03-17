@@ -6,27 +6,29 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/textview_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltImageView
+        android:id="@+id/imageview_flag"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_favorite"
         apps:layout_constraintStart_toStartOf="parent"
-        apps:layout_constraintTop_toTopOf="parent"
-        tools:text="Thailand" />
+        apps:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textview_cases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        apps:layout_constraintStart_toStartOf="parent"
-        apps:layout_constraintTop_toBottomOf="@+id/textview_country"
+        android:layout_marginStart="8dp"
+        apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
+        apps:layout_constraintTop_toTopOf="@+id/imageview_flag"
         tools:text="Cases : 26,757" />
 
     <TextView
         android:id="@+id/textview_recovered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        apps:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
         apps:layout_constraintTop_toBottomOf="@+id/textview_cases"
         tools:text="Recovered : 26,086" />
 
@@ -34,7 +36,8 @@
         android:id="@+id/textview_deaths"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        apps:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
         apps:layout_constraintTop_toBottomOf="@+id/textview_recovered"
         tools:text="Deaths : 86" />
 

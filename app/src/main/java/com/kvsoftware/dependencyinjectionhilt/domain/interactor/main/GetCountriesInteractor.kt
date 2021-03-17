@@ -1,4 +1,4 @@
-package com.kvsoftware.dependencyinjectionhilt.domain.interactor
+package com.kvsoftware.dependencyinjectionhilt.domain.interactor.main
 
 import com.kvsoftware.dependencyinjectionhilt.data.model.CountryDataModel
 import com.kvsoftware.dependencyinjectionhilt.data.rest.repository.CountryRepository

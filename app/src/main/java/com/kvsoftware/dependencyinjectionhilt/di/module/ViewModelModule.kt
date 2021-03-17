@@ -2,7 +2,8 @@ package com.kvsoftware.dependencyinjectionhilt.di.module
 
 import com.kvsoftware.dependencyinjectionhilt.data.rest.RestClient
 import com.kvsoftware.dependencyinjectionhilt.data.rest.repository.CountryRepository
-import com.kvsoftware.dependencyinjectionhilt.domain.interactor.GetCountriesInteractor
+import com.kvsoftware.dependencyinjectionhilt.data.sharepref.SharedPreferences
+import com.kvsoftware.dependencyinjectionhilt.domain.interactor.main.GetFavoriteCountriesInteractor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +19,11 @@ object ViewModelModule {
     }
 
     @Provides
-    fun provideGetCountriesInteractor(countryRepository: CountryRepository): GetCountriesInteractor {
-        return GetCountriesInteractor(countryRepository)
+    fun provideGetCountriesInteractor(
+        sharedPreferences: SharedPreferences,
+        countryRepository: CountryRepository
+    ): GetFavoriteCountriesInteractor {
+        return GetFavoriteCountriesInteractor(sharedPreferences, countryRepository)
     }
+
 }

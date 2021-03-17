@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.kvsoftware.dependencyinjectionhilt.databinding.FragmentCountryDetailBinding
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseFragment
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
@@ -26,7 +26,7 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
         }
     }
 
-    private val viewModel: CountryDetailViewModel by viewModels()
+    private val viewModel: CountryDetailViewModel by activityViewModels()
 
     override fun getViewModel(): BaseViewModel = viewModel
 

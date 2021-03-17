@@ -5,12 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kvsoftware.dependencyinjectionhilt.R
+import com.kvsoftware.dependencyinjectionhilt.data.model.CountryDataModel
 import com.kvsoftware.dependencyinjectionhilt.databinding.AdapterFavoriteBinding
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseRecyclerViewAdapter
 
 class FavoriteAdapter(
-    context: Context, items: ArrayList<FavoriteModel>
-) : BaseRecyclerViewAdapter<FavoriteModel, FavoriteAdapter.ViewHolder>(context, items) {
+    context: Context, items: ArrayList<CountryDataModel>
+) : BaseRecyclerViewAdapter<CountryDataModel, FavoriteAdapter.ViewHolder>(context, items) {
+
+    interface Listener {
+        fun onCountryClicked(countryDataModel: CountryDataModel)
+    }
+
+    var listener: Listener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,14 +29,22 @@ class FavoriteAdapter(
 
     inner class ViewHolder(private val binding: AdapterFavoriteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(favoriteModel: FavoriteModel) {
-            binding.textviewCountry.text = favoriteModel.countryName
+
+        fun bind(countryDataModel: CountryDataModel) {
+            binding.root.setOnClickListener {
+                listener?.onCountryClicked(countryDataModel)
+            }
+            binding.imageviewFlag.downloadImage("", countryDataModel.countryInfo.flag)
             binding.textviewCases.text =
-                context.getString(R.string.adapter_favorite_tv_cases, favoriteModel.cases)
+                context.getString(R.string.adapter_favorite_tv_cases, countryDataModel.cases)
             binding.textviewRecovered.text =
-                context.getString(R.string.adapter_favorite_tv_recovered, favoriteModel.recovered)
+                context.getString(
+                    R.string.adapter_favorite_tv_recovered,
+                    countryDataModel.recovered
+                )
             binding.textviewDeaths.text =
-                context.getString(R.string.adapter_favorite_tv_deaths, favoriteModel.deaths)
+                context.getString(R.string.adapter_favorite_tv_deaths, countryDataModel.deaths)
         }
+
     }
 }

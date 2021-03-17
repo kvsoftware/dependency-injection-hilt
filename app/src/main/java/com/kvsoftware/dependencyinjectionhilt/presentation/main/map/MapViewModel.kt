@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.kvsoftware.dependencyinjectionhilt.data.model.CountryDataModel
 import com.kvsoftware.dependencyinjectionhilt.domain.helper.ErrorHelper
-import com.kvsoftware.dependencyinjectionhilt.domain.interactor.GetCountriesInteractor
+import com.kvsoftware.dependencyinjectionhilt.domain.interactor.main.GetCountriesInteractor
+import com.kvsoftware.dependencyinjectionhilt.domain.interactor.main.GetFavoriteCountriesInteractor
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
