@@ -10,8 +10,6 @@ import com.kvsoftware.dependencyinjectionhilt.R
 import com.kvsoftware.dependencyinjectionhilt.databinding.ActivityMainBinding
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseActivity
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
-import com.kvsoftware.dependencyinjectionhilt.presentation.countrydetail.CountryDetailActivity
-import com.kvsoftware.dependencyinjectionhilt.presentation.countrydetail.CountryDetailViewModel
 import com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite.FavoriteFragment
 import com.kvsoftware.dependencyinjectionhilt.presentation.main.map.MapFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     override fun initializeView() {
-        setupToolbar(title = "Test")
+        setupToolbar(title = getString(R.string.activity_main_title))
         mainViewPagerAdapter = MainViewPagerAdapter(supportFragmentManager, lifecycle)
         binding.viewpager.apply {
             adapter = mainViewPagerAdapter

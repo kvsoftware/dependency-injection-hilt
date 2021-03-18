@@ -38,6 +38,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         context?.let { it ->
             initializeView(it)
             initializeObserver(it)
+            initializeViewModel(it)
         }
     }
 
@@ -59,6 +60,11 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     fun removeFragmentById(id: Int) {
         val fragment = childFragmentManager.findFragmentById(id)
         fragment?.let { removeFragment(it) }
+    }
+
+    private fun initializeViewModel(context: Context) {
+        getViewModel()?.initialize()
+        getViewModel()?.initialize(context)
     }
 
 }

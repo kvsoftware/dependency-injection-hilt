@@ -27,6 +27,7 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         initializeDataBinding()
         initializeView()
         initializeObserver()
+        initializeViewModel()
     }
 
     protected fun setupToolbar(
@@ -34,8 +35,8 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
         showBackButton: Boolean = false,
         imageResOption1: Int? = null,
         imageResOption2: Int? = null,
-        option1: View.OnClickListener? = null,
-        option2: View.OnClickListener? = null
+        option1ClickListener: View.OnClickListener? = null,
+        option2ClickListener: View.OnClickListener? = null
     ) {
         val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
@@ -52,37 +53,33 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
             }
             findViewById<ImageView>(R.id.imageview_option_1)?.apply {
                 imageResOption1?.let { setImageResource(it) }
-                option1?.let { setOnClickListener(it) }
+                option1ClickListener?.let { setOnClickListener(it) }
             }
             findViewById<ImageView>(R.id.imageview_option_2)?.apply {
                 imageResOption2?.let { setImageResource(it) }
-                option2?.let { setOnClickListener(it) }
+                option2ClickListener?.let { setOnClickListener(it) }
             }
         }
     }
 
-    protected fun setupOptionMenu(
-        imageResOption1: Int? = null,
-        imageResOption2: Int? = null,
-        option1: View.OnClickListener? = null,
-        option2: View.OnClickListener? = null
-    ) {
+    fun getOptionMenu1(): ImageView? {
         val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        toolbar.apply {
-            findViewById<ImageView>(R.id.imageview_option_1)?.apply {
-                imageResOption1?.let { setImageResource(it) }
-                option1?.let { setOnClickListener(it) }
-            }
-            findViewById<ImageView>(R.id.imageview_option_2)?.apply {
-                imageResOption2?.let { setImageResource(it) }
-                option2?.let { setOnClickListener(it) }
-            }
-        }
+        return toolbar.findViewById(R.id.imageview_option_1)
+    }
+
+    fun getOptionMenu2(): ImageView? {
+        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        return toolbar.findViewById(R.id.imageview_option_2)
     }
 
     private fun initializeDataBinding() {
         binding = getViewBinding()
         setContentView(binding.root)
+    }
+
+    private fun initializeViewModel() {
+        getViewModel()?.initialize()
+        getViewModel()?.initialize(this)
     }
 
     protected fun replaceFragment(id: Int, fragment: Fragment) {

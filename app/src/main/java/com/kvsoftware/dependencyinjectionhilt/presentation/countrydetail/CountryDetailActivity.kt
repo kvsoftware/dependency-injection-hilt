@@ -24,7 +24,7 @@ class CountryDetailActivity : BaseActivity<ActivityBaseToolbarBinding>() {
         }
     }
 
-    private val viewModel: CountryDetailViewModel by viewModels()
+    private val viewModel: CountryDetailActivityViewModel by viewModels()
 
     override fun getViewModel(): BaseViewModel = viewModel
 
@@ -36,21 +36,20 @@ class CountryDetailActivity : BaseActivity<ActivityBaseToolbarBinding>() {
             setupToolbar(
                 title = arguments.countryDataModel.country,
                 showBackButton = true,
-                option2 = { viewModel.favorite(arguments.countryDataModel) }
+                option2ClickListener = { viewModel.favorite(arguments.countryDataModel) }
             )
             replaceFragment(R.id.fragment_container, CountryDetailFragment.newInstance(arguments))
-            viewModel.initialize(arguments.countryDataModel)
+            viewModel.getFavoriteStatus(arguments.countryDataModel)
         }
     }
 
     override fun initializeObserver() {
         viewModel.isFavorited.observe(this, {
-            setupOptionMenu(imageResOption2 = if (it) R.drawable.ic_favorite else R.drawable.ic_unfavorite)
+            getOptionMenu2()?.setImageResource(if (it) R.drawable.ic_favorite else R.drawable.ic_unfavorite)
         })
     }
 
-    private fun getArgument(): CountryDetailArgument? {
-        return intent?.getParcelableExtra(ARGUMENT) as CountryDetailArgument?
-    }
+    private fun getArgument(): CountryDetailArgument? =
+        intent?.getParcelableExtra(ARGUMENT) as CountryDetailArgument?
 
 }

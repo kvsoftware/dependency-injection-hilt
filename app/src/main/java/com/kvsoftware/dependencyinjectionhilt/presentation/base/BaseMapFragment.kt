@@ -21,7 +21,10 @@ abstract class BaseMapFragment<T : ViewBinding> : BaseFragment<T>(), OnMapReadyC
 
     override fun onMapReady(googleMap: GoogleMap) {
         mGoogleMap = googleMap
-        mGoogleMap.setOnMarkerClickListener(this)
+        mGoogleMap.apply {
+            setOnMarkerClickListener(this@BaseMapFragment)
+            uiSettings.isMapToolbarEnabled = false
+        }
         context?.let { onMapInitialized(it) }
     }
 

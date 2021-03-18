@@ -21,7 +21,7 @@ class FavoriteAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = AdapterFavoriteBinding.inflate(inflater)
+        val binding = AdapterFavoriteBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
     }
 

@@ -1,7 +1,6 @@
 package com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite
 
 import android.content.Context
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.kvsoftware.dependencyinjectionhilt.data.model.CountryDataModel
@@ -31,4 +30,5 @@ class FavoriteViewModel @Inject constructor(private val getFavoriteCountriesInte
             isLoading.postValue(false)
         }
     }
+
 }

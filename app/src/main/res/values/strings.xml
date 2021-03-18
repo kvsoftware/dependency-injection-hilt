@@ -6,6 +6,7 @@
     <string name="error_something_went_wrong">Something went wrong, please try again</string>
 
     <!-- Main -->
+    <string name="activity_main_title">COVID-19</string>
     <string name="activity_main_viewpager_title_favorite">Favorites</string>
     <string name="activity_main_viewpager_title_map">Map</string>
     <string name="adapter_favorite_tv_cases">Cases : %1$d</string>

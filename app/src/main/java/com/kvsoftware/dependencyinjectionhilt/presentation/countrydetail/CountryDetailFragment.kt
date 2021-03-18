@@ -26,9 +26,9 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
         }
     }
 
-    private val viewModel: CountryDetailViewModel by activityViewModels()
+    private val fragmentViewModel: CountryDetailFragmentViewModel by activityViewModels()
 
-    override fun getViewModel(): BaseViewModel = viewModel
+    override fun getViewModel(): BaseViewModel = fragmentViewModel
 
     override fun getViewBinding(
         inflater: LayoutInflater,
@@ -50,12 +50,12 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
     }
 
     override fun initializeObserver(context: Context) {
-        viewModel.isLoading.observe(this, {
+        fragmentViewModel.isLoading.observe(this, {
             binding.progressbar.visibility = if (it) View.VISIBLE else View.GONE
         })
     }
 
-    private fun getArgument(): CountryDetailArgument? {
-        return arguments?.getParcelable(ARGUMENT) as CountryDetailArgument?
-    }
+    private fun getArgument(): CountryDetailArgument? =
+        arguments?.getParcelable(ARGUMENT) as CountryDetailArgument?
+
 }
