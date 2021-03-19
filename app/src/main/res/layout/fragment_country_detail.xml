@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
                 android:id="@+id/imageview_flag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 apps:layout_constraintStart_toStartOf="parent"
                 apps:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +25,9 @@
                 android:id="@+id/cardview_cases"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                apps:cardCornerRadius="8dp"
+                apps:contentPadding="8dp"
                 apps:layout_constraintStart_toStartOf="parent"
                 apps:layout_constraintTop_toBottomOf="@+id/imageview_flag">
 
@@ -33,23 +37,26 @@
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_cases"
+                        style="@style/BlackText.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fragment_country_detail_tv_cases"
-                        apps:layout_constraintEnd_toEndOf="parent"
                         apps:layout_constraintStart_toStartOf="parent"
                         apps:layout_constraintTop_toTopOf="parent" />
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_cases_value"
+                        style="@style/BlackText.Headline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"
                         apps:layout_constraintStart_toStartOf="parent"
-                        apps:layout_constraintTop_toBottomOf="@+id/textview_cases" />
+                        apps:layout_constraintTop_toBottomOf="@+id/textview_cases"
+                        tools:text="100" />
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_today_cases_value"
+                        style="@style/BlackText.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +71,9 @@
                 android:id="@+id/cardview_recovered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                apps:cardCornerRadius="8dp"
+                apps:contentPadding="8dp"
                 apps:layout_constraintStart_toStartOf="parent"
                 apps:layout_constraintTop_toBottomOf="@+id/cardview_cases">
 
@@ -73,15 +83,16 @@
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_recovered"
+                        style="@style/BlackText.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fragment_country_detail_tv_recovered"
-                        apps:layout_constraintEnd_toEndOf="parent"
                         apps:layout_constraintStart_toStartOf="parent"
                         apps:layout_constraintTop_toTopOf="parent" />
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_recovered_value"
+                        style="@style/BlackText.Headline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"
@@ -90,6 +101,7 @@
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_today_recovered_value"
+                        style="@style/BlackText.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"
@@ -104,6 +116,9 @@
                 android:id="@+id/cardview_deaths"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                apps:cardCornerRadius="8dp"
+                apps:contentPadding="8dp"
                 apps:layout_constraintStart_toStartOf="parent"
                 apps:layout_constraintTop_toBottomOf="@+id/cardview_recovered">
 
@@ -113,15 +128,16 @@
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_deaths"
+                        style="@style/BlackText.Body1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fragment_country_detail_tv_deaths"
-                        apps:layout_constraintEnd_toEndOf="parent"
                         apps:layout_constraintStart_toStartOf="parent"
                         apps:layout_constraintTop_toTopOf="parent" />
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_deaths_value"
+                        style="@style/BlackText.Headline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"
@@ -130,6 +146,7 @@
 
                     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
                         android:id="@+id/textview_today_deaths_value"
+                        style="@style/BlackText.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         apps:layout_constraintEnd_toEndOf="parent"

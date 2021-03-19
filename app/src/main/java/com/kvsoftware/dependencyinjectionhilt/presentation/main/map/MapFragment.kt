@@ -82,7 +82,8 @@ class MapFragment : BaseMapFragment<FragmentMapBinding>() {
 
     private fun getIcon(cases: Int): Bitmap {
         val markerView: View = layoutInflater.inflate(R.layout.layout_marker, null)
-        markerView.findViewById<TextView>(R.id.textview_cases)?.text = cases.toString()
+        markerView.findViewById<TextView>(R.id.textview_cases)?.text =
+            getString(R.string.global_number_format, cases)
         val iconGen = IconGenerator(context).apply {
             setContentView(markerView)
         }

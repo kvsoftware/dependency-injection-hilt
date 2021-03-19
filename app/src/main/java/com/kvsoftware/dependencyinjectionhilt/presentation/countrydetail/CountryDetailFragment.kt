@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.kvsoftware.dependencyinjectionhilt.R
 import com.kvsoftware.dependencyinjectionhilt.databinding.FragmentCountryDetailBinding
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseFragment
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
@@ -40,12 +41,24 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
     override fun initializeView(context: Context) {
         getArgument()?.let {
             binding.imageviewFlag.downloadImage("", it.countryDataModel.countryInfo.flag)
-            binding.textviewCasesValue.text = it.countryDataModel.cases.toString()
-            binding.textviewTodayCasesValue.text = it.countryDataModel.todayCases.toString()
-            binding.textviewRecoveredValue.text = it.countryDataModel.recovered.toString()
-            binding.textviewTodayRecoveredValue.text = it.countryDataModel.todayRecovered.toString()
-            binding.textviewDeathsValue.text = it.countryDataModel.deaths.toString()
-            binding.textviewTodayDeathsValue.text = it.countryDataModel.todayDeaths.toString()
+            binding.textviewCasesValue.text =
+                getString(R.string.global_number_format, it.countryDataModel.cases)
+            binding.textviewTodayCasesValue.text = getString(
+                R.string.fragment_country_detail_tv_today,
+                it.countryDataModel.todayCases
+            )
+            binding.textviewRecoveredValue.text =
+                getString(R.string.global_number_format, it.countryDataModel.recovered)
+            binding.textviewTodayRecoveredValue.text = getString(
+                R.string.fragment_country_detail_tv_today,
+                it.countryDataModel.todayRecovered
+            )
+            binding.textviewDeathsValue.text =
+                getString(R.string.global_number_format, it.countryDataModel.deaths)
+            binding.textviewTodayDeathsValue.text = getString(
+                R.string.fragment_country_detail_tv_today,
+                it.countryDataModel.todayDeaths
+            )
 
             viewModel.getHistoricalByCountry(context, it.countryDataModel.country)
         }

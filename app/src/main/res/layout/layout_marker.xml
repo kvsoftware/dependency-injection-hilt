@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/color_primary"
     android:padding="8dp">
 
     <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
         android:id="@+id/textview_cases"
+        style="@style/WhiteText.Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         apps:layout_constraintStart_toStartOf="parent"

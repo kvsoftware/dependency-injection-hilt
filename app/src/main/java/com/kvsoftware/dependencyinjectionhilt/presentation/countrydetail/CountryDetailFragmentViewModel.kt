@@ -23,10 +23,8 @@ class CountryDetailFragmentViewModel @Inject constructor(val getHistoricalIntera
         viewModelScope.launch {
             isLoading.postValue(true)
             try {
-                val response =
-                    getHistoricalInteractor.invoke(GetHistoricalInteractor.Params(country))
+                val response = getHistoricalInteractor.invoke(GetHistoricalInteractor.Params(country))
                 historicalDataModel.postValue(response)
-                Log.i("Kv", " response : " + response)
             } catch (e: Exception) {
                 error.postValue(ErrorHelper.getErrorMessage(context, e))
             }
