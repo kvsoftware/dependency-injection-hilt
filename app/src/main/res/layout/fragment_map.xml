@@ -13,14 +13,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_country"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:visibility="invisible"
         apps:cardCornerRadius="8dp"
         apps:contentPadding="8dp"
-        apps:layout_constraintBottom_toBottomOf="parent"
-        apps:layout_constraintEnd_toEndOf="parent"
-        apps:layout_constraintStart_toStartOf="parent">
+        apps:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,7 +36,7 @@
                 android:id="@+id/textview_cases"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
                 apps:layout_constraintTop_toTopOf="@+id/imageview_flag"
                 tools:text="Cases : 26,757" />
@@ -46,7 +45,7 @@
                 android:id="@+id/textview_recovered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
                 apps:layout_constraintTop_toBottomOf="@+id/textview_cases"
                 tools:text="Recovered : 26,086" />
@@ -55,7 +54,7 @@
                 android:id="@+id/textview_deaths"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 apps:layout_constraintStart_toEndOf="@+id/imageview_flag"
                 apps:layout_constraintTop_toBottomOf="@+id/textview_recovered"
                 tools:text="Deaths : 86" />

@@ -71,10 +71,13 @@ class MapFragment : BaseMapFragment<FragmentMapBinding>() {
         p0?.let { marker ->
             context?.let { context ->
                 showCardViewCountry(context, marker.tag as CountryDataModel)
-
             }
         }
         return false
+    }
+
+    override fun onMapClick(p0: LatLng?) {
+        binding.cardviewCountry.visibility = View.GONE
     }
 
     private fun getIcon(cases: Int): Bitmap {

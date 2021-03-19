@@ -26,9 +26,9 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
         }
     }
 
-    private val fragmentViewModel: CountryDetailFragmentViewModel by activityViewModels()
+    private val viewModel: CountryDetailFragmentViewModel by activityViewModels()
 
-    override fun getViewModel(): BaseViewModel = fragmentViewModel
+    override fun getViewModel(): BaseViewModel = viewModel
 
     override fun getViewBinding(
         inflater: LayoutInflater,
@@ -46,11 +46,13 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
             binding.textviewTodayRecoveredValue.text = it.countryDataModel.todayRecovered.toString()
             binding.textviewDeathsValue.text = it.countryDataModel.deaths.toString()
             binding.textviewTodayDeathsValue.text = it.countryDataModel.todayDeaths.toString()
+
+            viewModel.getHistoricalByCountry(context, it.countryDataModel.country)
         }
     }
 
     override fun initializeObserver(context: Context) {
-        fragmentViewModel.isLoading.observe(this, {
+        viewModel.isLoading.observe(this, {
             binding.progressbar.visibility = if (it) View.VISIBLE else View.GONE
         })
     }

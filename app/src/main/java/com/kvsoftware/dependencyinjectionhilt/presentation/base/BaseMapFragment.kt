@@ -7,7 +7,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 
 abstract class BaseMapFragment<T : ViewBinding> : BaseFragment<T>(), OnMapReadyCallback,
-    GoogleMap.OnMarkerClickListener {
+    GoogleMap.OnMarkerClickListener, GoogleMap.OnMapClickListener {
 
     protected lateinit var mGoogleMap: GoogleMap
 
@@ -23,6 +23,7 @@ abstract class BaseMapFragment<T : ViewBinding> : BaseFragment<T>(), OnMapReadyC
         mGoogleMap = googleMap
         mGoogleMap.apply {
             setOnMarkerClickListener(this@BaseMapFragment)
+            setOnMapClickListener(this@BaseMapFragment)
             uiSettings.isMapToolbarEnabled = false
         }
         context?.let { onMapInitialized(it) }
