@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/color_primary"
+    android:padding="8dp">
+
+    <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+        android:id="@+id/textview_cases"
+        style="@style/WhiteText.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        apps:layout_constraintStart_toStartOf="parent"
+        apps:layout_constraintTop_toTopOf="parent"
+        tools:text="10000" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
