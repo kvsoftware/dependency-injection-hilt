@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TimelineDataModel(
-    @SerializedName("cases") val cases: Map<String, String>,
-    @SerializedName("deaths") val deaths: Map<String, String>,
-    @SerializedName("recovered") val recovered: Map<String, String>
+    @SerializedName("cases") val cases: Map<String, Int>,
+    @SerializedName("deaths") val deaths: Map<String, Int>,
+    @SerializedName("recovered") val recovered: Map<String, Int>
 ) : Parcelable

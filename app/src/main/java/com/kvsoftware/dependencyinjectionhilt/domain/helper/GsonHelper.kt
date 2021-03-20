@@ -9,7 +9,7 @@ object GsonHelper {
     fun getGson(): Gson {
         return GsonBuilder()
             .registerTypeAdapter(Date::class.java, JsonDeserializer<Date> { json, _, _ ->
-                if (json.asJsonPrimitive.isNumber) Date(json.asJsonPrimitive.asLong * 1000) else null
+                if (json.asJsonPrimitive.isNumber) Date(json.asJsonPrimitive.asLong) else null
             })
             .create()
     }

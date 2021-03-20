@@ -14,17 +14,17 @@ import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class CountryDetailFragmentViewModel @Inject constructor(val getHistoricalInteractor: GetHistoricalInteractor) :
+class CountryDetailFragmentViewModel @Inject constructor(private val getHistoricalInteractor: GetHistoricalInteractor) :
     BaseViewModel() {
 
-    val historicalDataModel: MutableLiveData<List<HistoricalDataModel>> by lazy { MutableLiveData<List<HistoricalDataModel>>() }
+    val provinceModels: MutableLiveData<ArrayList<ProvinceModel>> by lazy { MutableLiveData<ArrayList<ProvinceModel>>() }
 
     fun getHistoricalByCountry(context: Context, country: String) {
         viewModelScope.launch {
             isLoading.postValue(true)
             try {
                 val response = getHistoricalInteractor.invoke(GetHistoricalInteractor.Params(country))
-                historicalDataModel.postValue(response)
+                provinceModels.postValue(response)
             } catch (e: Exception) {
                 error.postValue(ErrorHelper.getErrorMessage(context, e))
             }

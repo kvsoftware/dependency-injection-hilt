@@ -26,6 +26,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="BlackText.Body2" parent="@style/TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="BlackText.Caption" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/black</item>
     </style>

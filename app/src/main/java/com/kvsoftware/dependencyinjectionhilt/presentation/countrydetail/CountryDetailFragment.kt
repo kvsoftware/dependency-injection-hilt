@@ -2,18 +2,25 @@ package com.kvsoftware.dependencyinjectionhilt.presentation.countrydetail
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.kvsoftware.dependencyinjectionhilt.R
 import com.kvsoftware.dependencyinjectionhilt.databinding.FragmentCountryDetailBinding
+import com.kvsoftware.dependencyinjectionhilt.domain.helper.DateHelper
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseFragment
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
+import com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite.FavoriteAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
-class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
+class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>(),
+    ProvinceAdapter.Listener {
 
     companion object {
         private const val ARGUMENT = "argument"
@@ -40,7 +47,12 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
 
     override fun initializeView(context: Context) {
         getArgument()?.let {
-            binding.imageviewFlag.downloadImage("", it.countryDataModel.countryInfo.flag)
+            val update = it.countryDataModel.updated
+            binding.textviewUpdated.text =
+                getString(
+                    R.string.fragment_country_detail_tv_updated,
+                    if (update != null) DateHelper.toDateString1(update) else "-"
+                )
             binding.textviewCasesValue.text =
                 getString(R.string.global_number_format, it.countryDataModel.cases)
             binding.textviewTodayCasesValue.text = getString(
@@ -68,6 +80,23 @@ class CountryDetailFragment : BaseFragment<FragmentCountryDetailBinding>() {
         viewModel.isLoading.observe(this, {
             binding.progressbar.visibility = if (it) View.VISIBLE else View.GONE
         })
+        viewModel.error.observe(this, {
+            Log.i("Kv", "error : " + it)
+        })
+        viewModel.provinceModels.observe(this, {
+            binding.textviewProvincesNotFound.visibility =
+                if (it.isEmpty()) View.VISIBLE else View.GONE
+            binding.recyclerviewProvinces.apply {
+                layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                adapter =
+                    ProvinceAdapter(context, it).apply { listener = this@CountryDetailFragment }
+                isNestedScrollingEnabled = false
+            }
+        })
+    }
+
+    override fun onProvinceClicked(provinceModel: ProvinceModel) {
+
     }
 
     private fun getArgument(): CountryDetailArgument? =

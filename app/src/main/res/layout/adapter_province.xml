@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    apps:cardCornerRadius="8dp"
+    apps:contentPadding="8dp"
+    apps:layout_constraintStart_toStartOf="parent"
+    apps:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+            android:id="@+id/textview_province"
+            style="@style/BlackText.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintTop_toTopOf="parent"
+            tools:text="Province" />
+
+        <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+            android:id="@+id/textview_cases"
+            style="@style/BlackText.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintTop_toBottomOf="@+id/textview_province"
+            tools:text="Cases : 26,757" />
+
+        <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+            android:id="@+id/textview_recovered"
+            style="@style/BlackText.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintTop_toBottomOf="@+id/textview_cases"
+            tools:text="Recovered : 26,086" />
+
+        <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+            android:id="@+id/textview_deaths"
+            style="@style/BlackText.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            apps:layout_constraintStart_toStartOf="parent"
+            apps:layout_constraintTop_toBottomOf="@+id/textview_recovered"
+            tools:text="Deaths : 86" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

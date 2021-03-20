@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,23 +13,39 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
-            <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltImageView
-                android:id="@+id/imageview_flag"
-                android:layout_width="match_parent"
+            <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+                android:id="@+id/textview_updated"
+                style="@style/BlackText.Caption"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                apps:layout_constraintEnd_toEndOf="parent"
+                apps:layout_constraintTop_toTopOf="parent"
+                tools:text="Last updated : March 20, 2021" />
+
+            <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+                android:id="@+id/textview_situation"
+                style="@style/BlackText.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/fragment_country_detail_tv_situation"
                 apps:layout_constraintStart_toStartOf="parent"
-                apps:layout_constraintTop_toTopOf="parent" />
+                apps:layout_constraintTop_toBottomOf="@+id/textview_updated" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_cases"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 apps:cardCornerRadius="8dp"
                 apps:contentPadding="8dp"
                 apps:layout_constraintStart_toStartOf="parent"
-                apps:layout_constraintTop_toBottomOf="@+id/imageview_flag">
+                apps:layout_constraintTop_toBottomOf="@+id/textview_situation">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -69,11 +85,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_recovered"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
                 apps:cardCornerRadius="8dp"
                 apps:contentPadding="8dp"
+                apps:layout_constraintEnd_toStartOf="@+id/cardview_deaths"
                 apps:layout_constraintStart_toStartOf="parent"
                 apps:layout_constraintTop_toBottomOf="@+id/cardview_cases">
 
@@ -114,13 +133,16 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_deaths"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 apps:cardCornerRadius="8dp"
                 apps:contentPadding="8dp"
-                apps:layout_constraintStart_toStartOf="parent"
-                apps:layout_constraintTop_toBottomOf="@+id/cardview_recovered">
+                apps:layout_constraintEnd_toEndOf="parent"
+                apps:layout_constraintStart_toEndOf="@+id/cardview_recovered"
+                apps:layout_constraintTop_toBottomOf="@+id/cardview_cases">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -157,9 +179,40 @@
 
             </androidx.cardview.widget.CardView>
 
+            <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+                android:id="@+id/textview_provinces"
+                style="@style/BlackText.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/fragment_country_detail_tv_provinces"
+                apps:layout_constraintStart_toStartOf="parent"
+                apps:layout_constraintTop_toBottomOf="@+id/cardview_deaths" />
+
+            <com.kvsoftware.dependencyinjectionhilt.presentation.widget.DIHiltTextView
+                android:id="@+id/textview_provinces_not_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/fragment_country_detail_tv_provinces_not_found"
+                android:visibility="gone"
+                apps:layout_constraintEnd_toEndOf="parent"
+                apps:layout_constraintStart_toStartOf="parent"
+                apps:layout_constraintTop_toBottomOf="@+id/textview_provinces" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_provinces"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                apps:layout_constraintTop_toBottomOf="@+id/textview_provinces" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/progressbar"
