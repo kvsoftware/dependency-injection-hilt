@@ -14,6 +14,10 @@ import com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite.Favorit
 import com.kvsoftware.dependencyinjectionhilt.presentation.main.map.MapFragment
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Put @AndroidEntryPoint annotation for some injected dependencies are using in the Activity,
+ * Fragment, or View
+ * */
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

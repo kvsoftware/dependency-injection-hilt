@@ -24,12 +24,4 @@ object ViewModelModule {
         return HistoricalRepository(restClient)
     }
 
-    @Provides
-    fun provideGetCountriesInteractor(
-        sharedPreferences: SharedPreferences,
-        countryRepository: CountryRepository
-    ): GetFavoriteCountriesInteractor {
-        return GetFavoriteCountriesInteractor(sharedPreferences, countryRepository)
-    }
-
 }

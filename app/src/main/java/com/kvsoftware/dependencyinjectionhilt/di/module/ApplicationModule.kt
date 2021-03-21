@@ -10,6 +10,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+/**
+ * Module for keeping below dependencies arrived as long as application.
+ *
+ * The dependency which has @Singleton annotation, it will be constructed only one instance across
+ * the component.
+ * */
 @Module
 @InstallIn(SingletonComponent::class)
 object ApplicationModule {
