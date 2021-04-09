@@ -14,7 +14,6 @@ import com.kvsoftware.dependencyinjectionhilt.databinding.FragmentCountryDetailB
 import com.kvsoftware.dependencyinjectionhilt.domain.helper.DateHelper
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseFragment
 import com.kvsoftware.dependencyinjectionhilt.presentation.base.BaseViewModel
-import com.kvsoftware.dependencyinjectionhilt.presentation.main.favorite.FavoriteAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
