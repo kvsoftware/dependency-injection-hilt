@@ -8,6 +8,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 
+/**
+ * Module for keeping below dependencies arrived as long as view model.
+ * */
 @Module
 @InstallIn(ViewModelComponent::class)
 object ViewModelModule {
