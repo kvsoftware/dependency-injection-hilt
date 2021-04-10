@@ -27,7 +27,8 @@ dependencies {
 }
 ```
 
-3. Add @HiltAndroidApp in Application class.
+### Coding
+1. Add @HiltAndroidApp in Application class.
 ```
 import dagger.hilt.android.HiltAndroidApp
 
@@ -35,7 +36,7 @@ import dagger.hilt.android.HiltAndroidApp
 class DependencyInjectionHilt : Application()
 ```
 
-4. Create Hilt modules by creating the class that is annotated with @Module and @InstallIn which provide the lifetime.
+2. Create Hilt modules by creating the class that is annotated with @Module and @InstallIn which provide the lifetime.
 
 #### Component lifetimes
 
