@@ -24,6 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     companion object {
         const val TAB_FAVORITE_POSITION = 0
         const val TAB_MAP_POSITION = 1
+        const val VIEW_PAGER_ITEM_COUNTS = 2
     }
 
     private val viewModel: MainViewModel by viewModels()
@@ -57,7 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     class MainViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
         FragmentStateAdapter(fragmentManager, lifecycle) {
 
-        override fun getItemCount(): Int = 2
+        override fun getItemCount(): Int = VIEW_PAGER_ITEM_COUNTS
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
