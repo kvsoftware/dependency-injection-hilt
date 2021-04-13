@@ -28,7 +28,7 @@ dependencies {
 ```
 
 ### Coding
-1. Add @HiltAndroidApp in Application class.
+1. Create Application class that is annotated with @HiltAndroidApp.
 ```
 import dagger.hilt.android.HiltAndroidApp
 
@@ -36,7 +36,7 @@ import dagger.hilt.android.HiltAndroidApp
 class DependencyInjectionHilt : Application()
 ```
 
-2. Create Hilt modules by creating the class that is annotated with @Module and @InstallIn which provide the lifetime.
+2. Create Hilt modules by creating the class that is annotated with @Module and @InstallIn annotations which provide the lifetime.
 
 #### Component lifetimes
 
@@ -81,6 +81,22 @@ object ViewModelModule {
 
     ...
 
+}
+```
+
+3. Create ViewModel that is annotated with @HiltViewModel and inject the constructor with @Inject.
+```
+@HiltViewModel
+class MainViewModel @Inject constructor() : BaseViewModel()
+```
+
+4. Create Activity, Fragment, or other view class that is annotated with @AndroidEntryPoint and initialize the ViewModel by using viewModels() which provided by JetPack.
+```
+@AndroidEntryPoint
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+...
+    private val viewModel: MainViewModel by viewModels()
+...
 }
 ```
 
